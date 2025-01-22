@@ -1,0 +1,142 @@
+@import"normalize.scss"       /* Именно в таком порядке импорт!!! */
+@import"reset.scss"           /* Импортировали файлы в CSS. Расширение вначале в .scss */
+
+$container-color: #F7F7F7
+$header-color: #FFFFFF
+$text-color: #777777
+
+html
+    /* Меняем единицу rem с 16px на 10px и выставляем в % для адаптивности */
+    font-size: 62.5%
+
+*
+    box-sizing: border-box
+
+/* Анимация: */
+@keyframes Left-2-Right
+    0%
+        opacity: 0
+        transform: translateX(-10rem)
+    60%
+        transform: translateX(1rem)
+    100%
+        opacity: 1
+        transform: translateX(0rem)
+@keyframes Right-2-Left
+    0%
+        opacity: 0
+        transform: translateX(10rem)
+    80%
+        transform: translateX(-1rem)
+    100%
+        opacity: 1
+        transform: translateX(0rem)
+
+@keyframes Btn-2-Up
+    0%
+        opacity: 0
+        transform: translateY(5rem)    
+    100%
+        opacity: 1
+        transform: translateY(0rem)
+
+body
+    font-family: "roboto", sans-serif
+    font-weight: 400
+    color: $text-color
+    font-size: 1.6rem
+    letter-spacing: .2rem
+    padding: 5rem
+    background-color: white
+.container
+    background-color: $container-color
+.header
+    height: 95vh
+    position: relative
+    /* Последовательность: градиент сверху, потом картинка */ 
+    background: linear-gradient(90deg, rgba(186, 133, 84, 0.70) 0.03%, rgba(1, 1, 1, 0.70) 99.94%), url(../img/header-background.jpg) center / cover no-repeat
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
+    &__logo
+        position: absolute
+        width: 5.6rem
+        height: 7rem
+        top: 5rem
+        left: 5rem
+    &__box
+        position: absolute
+        top: 40%
+        left: 50%
+        width: 100%
+        transform: translate(-50%, -50%)
+        text-align: center
+.title-first
+    color: $header-color    
+    &__main
+        display: block 
+        font-size: 50px        
+        font-weight: 800        
+        letter-spacing: 1rem
+        text-transform: uppercase
+        margin-bottom: 1rem
+        /* Порядок свойств Animation: name duration timing-function delay fill-mode Сохранение стиля перед началом (т.е. прозрачная кнопка) animation-fill-mode: backwards */
+        animation: Left-2-Right 1.7s ease 1s backwards
+        backface-visibility: hidden
+    &__secondary
+        display: block
+        font-size: 4rem       
+        font-weight: 300        
+        letter-spacing: .5rem
+        margin-bottom: 5rem
+        animation: Right-2-Left 1.5s ease 1s backwards
+        backface-visibility: hidden
+        margin-bottom: 6.4rem
+
+.btn
+    /* Подписываем псевдоклассы для ссыли и посещенной ссыли */
+    &:link, &:visited
+        display: inline-block
+        position: relative
+        text-transform: uppercase 
+        text-decoration: none
+        padding: 1.5rem 4rem        
+        border-radius: 5rem
+        background: $header-color
+        color: $text-color
+        font-size: 2rem
+        font-weight: 500
+        letter-spacing: .5rem
+        cursor: pointer
+        transition: all .3s
+    &_animated
+        animation: Btn-2-Up 1s ease-out 1s backwards
+        backface-visibility: hidden 
+    &:hover
+        transform: translateY(-4px)
+        box-shadow: 0rem .8rem .8rem 0rem rgba(0, 0, 0, 0.20)
+        /* Прикручиваем псевдоэлемент к псевдоклассу */
+        &::after
+            opacity: 0
+            transform: scaleX(1.5) scaleY(1.8)
+
+    &:active
+        transform: translateY(-2px)
+        box-shadow: 0rem .4rem .4rem 0rem rgba(0, 0, 0, 0.10)
+
+    /* Псевдоэлементы ::before ::after создают копию объекта */ 
+    &::after 
+        /* Свойство content добавлять ОБЯЗАТЕЛЬНО! Даже пустое */ 
+        content: ""
+        /* Повторяем свойства для дублирования */
+        display: inline-block
+        background: $header-color
+        width: 100%
+        height: 100%
+        border-radius: 5rem
+        /* Чтобы расположение совпало с оригиналом позиционируем */
+        position: absolute
+        top: 0
+        left: 0
+        z-index: -1
+        transition: all .5s
+
+
