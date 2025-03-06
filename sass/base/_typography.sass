@@ -1,10 +1,10 @@
 //Общий шрифт документа
 body
     font-family: "roboto", sans-serif
-    font-weight: 400
-    color: $color-grey
-    font-size: 1.6rem
+    font-weight: 400    
+    font-size: $font-size-paragraph
     letter-spacing: .2rem
+    color: $color-grey
     
 //Заголовки H1
 .title-first
@@ -28,3 +28,54 @@ body
         animation: Right-2-Left 1.5s ease 1s backwards
         backface-visibility: hidden
         margin-bottom: 6.4rem
+
+//Заголовки H2
+.title-secondary
+    display: inline-block
+    font-size: $font-size-h2
+    font-weight: 800
+    letter-spacing: 1rem
+    text-transform: uppercase
+    background: linear-gradient(90deg, rgba($color-brown-light, 0.70) 0.03%, rgba($color-brown-dark, 0.70) 99.94%)
+    -webkit-background-clip: text //Клипит градиент по форме текста
+    //-webkit- ведорный префикс, чтобы запускать экспериментальные штуки
+    color: transparent //Цвет текста прозрачный
+    transition: all .3s
+    backface-visibility: hidden
+    &:hover
+        transform: skewY(5deg) skewX(15deg) scale(1.2)
+        text-shadow: $h2-shadow
+    &_white
+        color: $color-white
+
+//Заголовки H3
+.title-third
+    font-size: $font-size-h3
+    font-weight: 700
+    letter-spacing: .2rem
+    text-transform: uppercase
+
+.title-fourth
+    font-size: $font-size-h4
+    font-weight: 300
+    letter-spacing: .2rem
+    text-transform: uppercase
+
+//Заголовки H4
+.tour-card
+    &__title
+        color: $color-white
+        font-size: $font-size-h4
+        font-weight: 300
+        letter-spacing: .2rem
+        text-transform: uppercase
+        text-align: right
+
+//Параграф 
+.paragraph
+    font-size: $font-size-paragraph
+    font-weight: 400
+    letter-spacing: .2rem
+    line-height: 140%
+
+

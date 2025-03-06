@@ -1,0 +1,22 @@
+.section-about
+    padding-top: 8rem
+    padding-bottom: 21rem
+    
+.section-adventure
+    padding: 21rem 0
+    background: linear-gradient(90deg, rgba($color-brown-light, 0.70) 0.03%, rgba($color-black, 0.70) 99.94%), url(../img/section-adventure.jpg) center / cover no-repeat
+    transform: skewY(7deg)
+    & > * //Выбираем всех потомков
+        transform: skewY(-7deg) //Поворот обратно потомков
+
+.section-tours
+    padding-top: 21rem
+    margin-bottom: 8rem
+
+.section-feedback
+    padding: 8rem 0
+    position: relative
+
+.section-book
+    padding: 10rem
+    background: linear-gradient(90deg, $color-brown-light 3.65%, $color-brown-dark 100%)

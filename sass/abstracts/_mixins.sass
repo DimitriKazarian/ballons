@@ -7,3 +7,19 @@
     cursor: pointer
     background: $background
     color: $color
+
+//Миксин для очистки флоата
+@mixin clearfix
+    &::after
+        content: ""
+        display: table
+        clear: both
+
+//Миксин для построения колонок
+@mixin col($quantity, $columns)
+    &:not(:last-child)
+        margin-right: $gutter-horizontal
+    /* формула: кол-во спаренных колонок * ширина одной колонки + кол-во промежутков*/
+    width: calc(#{$quantity} * ((100% - (#{$columns} - 1) * #{$gutter-horizontal}) / #{$columns}) + (#{$quantity} - 1) * #{$gutter-horizontal})
+    //background: #a8ee99
+    float: left

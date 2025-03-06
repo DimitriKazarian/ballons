@@ -1,0 +1,46 @@
+.feedback-card
+    width: 85%
+    background: rgba($color-white, 0.8)
+    box-shadow: $box-shadow
+    margin: 0 auto
+    padding: 6rem
+    transform: skewX(330deg)
+    & > *
+        transform: skewX(-330deg)
+    &__img
+        width: 15rem
+        height: 15rem
+        //background: green был для настройки
+        float: left
+        border-radius: 10rem
+        margin-right: 4rem
+        shape-outside: circle(50% at 50% 50%) // Обтекание текста вокруг фигуры (настройка в конструкторе clip-path)
+        -webkit-shape-outside: circle(50% at 50% 50%)
+        overflow: hidden
+        position: relative
+        img
+            height: 100% //Чтоб влез в кружок
+            transform: scale(1.2)
+            transition: all .5s ease-out
+    //Появление имени и фамилии на фотке
+    &__name        
+        text-align: center
+        text-transform: uppercase
+        color: $color-white
+        font-size: 2rem
+        font-weight: 500
+        letter-spacing: .2rem
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -20%)
+        opacity: 0
+        transition: all .5s ease-out
+    &:hover &__name //Отдельно для name
+        transform: translate(-50%, -50%)
+        opacity: 1
+    &:hover img //Отдельно для img
+        transform: scale(1)
+        filter: blur(.4rem) brightness(50%) // Размытие и затемнение
+
+        

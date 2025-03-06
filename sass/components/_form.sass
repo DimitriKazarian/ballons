@@ -1,0 +1,80 @@
+.book
+    height: 50rem
+    background: linear-gradient(110deg, rgba($color-white, 0.9) 0%, rgba($color-white, 0.9) 57%, rgba($color-brown-light, 0.3) 57%, rgba($color-brown-dark, 0.3) 100%), url(../img/girl.jpg) center / cover no-repeat
+    box-shadow: $box-shadow
+    border-radius: .5rem
+
+.form
+    position: relative
+    width: 60%
+    padding: 5rem 0 0 5rem
+    &__group:not(:last-child)
+        margin-bottom: 2.4rem
+    &__group:nth-child(4)
+        margin-bottom: 4rem
+
+
+    &__label
+        font-size: $font-size-paragraph
+        letter-spacing: .2rem
+        font-weight: 400
+        color: $color-black
+        display: block //чтобы текст ушел под инпут
+        padding: .1rem 0 0 1.6rem
+        transform: translateY(1rem)
+        transition: all .3s ease    
+    &__input
+        width: 75%
+        background: $color-white
+        font-size: $font-size-paragraph
+        letter-spacing: .2rem
+        font-weight: 400
+        color: $color-black
+        padding: 2rem 0 2rem 2rem
+        border: none
+        border-bottom: .3rem solid transparent
+        border-radius: .5rem
+        box-shadow: $box-shadow-input
+        &:focus
+            outline: none //Убираем авто-рамку при клике в инпут
+            border-bottom: .2rem solid $color-brown-light
+            box-shadow: $box-shadow-light
+        &:valid
+            border-bottom: .3rem solid $color-green //Если правильно - остается зеленым
+        &:focus:invalid
+            border-bottom: .3rem solid $color-red
+
+    //Выплываеюцая строчка при заполнении инпута (обычно через JS)
+    //Через "+" обращаемся к ПЕРВОМУ СОСЕДНЕМУ, а не дочернему элементу
+    &__input:placeholder-shown + &__label 
+        opacity: 0
+        visibility: 0
+        transform: translateY(-1rem)
+
+    &__group-radio
+        width: 100%
+        display: inline-block
+        padding-left: 3rem
+    &__input-radio
+        margin-right: .8rem
+        display: none
+    &__input-radio:checked + &__label-radio > &__button-radio
+        background-color: $color-brown-light
+        transition: all .2s
+    &__label-radio //Это надпись внутри которой span  
+        position: relative      
+        cursor: pointer
+        &:not(:last-child)
+            padding-right: 8rem
+    &__button-radio //Это span
+        display: block
+        position: absolute
+        width: 1rem
+        height: 1rem
+        background-color: $color-white
+        outline-offset: .4rem
+        outline: .3rem solid $color-brown-light
+        border-radius: 100%
+        top: 0.4rem
+        left: -2.6rem
+
