@@ -1,0 +1,102 @@
+.navigation
+    &__toggle
+        display: none // Чекбокс переключатель меню (true/false)
+    &__toggle:checked ~ &__background //Выбираем соседа
+        transform: scale(100) //Показываем подложку меню
+    &__toggle:checked ~ &__nav
+        height: 100%
+        transform: scale(1)
+        transform: translate(0, 0)
+        opacity: 1
+    &__button
+        width: 6rem
+        height: 6rem
+        border-radius: 50%
+        background: $color-white
+        position: fixed
+        top: 9rem
+        right: 9rem
+        z-index: 200
+        text-align: center
+        cursor: pointer
+    &__background
+        width: 4rem
+        height: 4rem
+        border-radius: 50%
+        background: radial-gradient($color-brown-light, $color-brown-dark)
+        position: fixed
+        top: 10rem
+        right: 10rem
+        z-index: 100    
+        transition: transform 1s cubic-bezier(0.68, -0.6, 0.32, 1.6)
+    &__nav
+        height: 100vh
+        width: 100%
+        position: fixed
+        top: 0
+        right: 0
+        z-index: 150
+        transition: all .7s cubic-bezier(.02,.52,1,.38)
+
+        //Скрытое состояние
+        opacity: 0 
+        transform: translate(-100rem, -100rem)   
+        transform: scale(0)
+    &__list
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        list-style: none
+    &__item
+        text-align: center        
+        &:not(:last-child)
+            margin-bottom: 5rem
+    &__link
+        &:link, &:visited                  
+            font-size: 4rem
+            letter-spacing: .5rem
+            color: $color-white        
+            text-decoration: none
+            text-transform: uppercase
+            background: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%, $color-white 100%)
+            padding: 1rem 2rem
+            background-size: 220% //Увеличив увели вправо белую полосу
+            transition: all .3s ease-out
+            display: inline-block //Чтобы работало смещение текста при ховере
+        &:hover, &:active
+            background-position: 100% //Вернули белую полосу, заполнив всё
+            color: $color-brown-dark  //Перекрасили текст
+            transform: translateX(1rem) 
+    &__icon
+        position: relative
+        margin-top: 29px         
+        &, 
+        &::before, 
+        &::after
+            width: 30px
+            height: 2px
+            background: $color-black
+            display: inline-block    
+            transition: all .3s        
+        &::before, 
+        &::after
+            content: ""
+            position: absolute
+            left: 0
+        &::before
+            top: -8px
+        &::after
+            top: 8px
+    &__button:hover &__icon::before
+        top: -10px
+    &__button:hover &__icon::after
+        top: 10px
+    &__toggle:checked + &__button &__icon
+        background: transparent // Убираем среднюю палочку
+    &__toggle:checked + &__button &__icon::before
+        top: 0
+        transform: rotate(135deg)
+    &__toggle:checked + &__button &__icon::after
+        top: 0
+        transform: rotate(-135deg)
