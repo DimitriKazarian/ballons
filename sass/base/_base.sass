@@ -1,6 +1,14 @@
 /* Меняем единицу rem с 16px на 10px и выставляем в % для адаптивности */    
 html
     font-size: 62.5%
+    @include respond(tab-land) //Идет по убывающей, т.к. в них MAX-screen
+        font-size: 56.25%
+    @include respond(tab-port)
+        font-size: 50%
+    @include respond(phone)
+        font-size: 30%
+    @include respond(big-screen) //Идет последним, т.к. в нем MIN-screen
+        font-size: 75%
 
 *, ::before, ::after
     margin: 0

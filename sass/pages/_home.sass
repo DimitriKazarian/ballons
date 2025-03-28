@@ -1,17 +1,32 @@
+//Все секции домашней страницы
+    
 .section-about
     padding-top: 8rem
-    padding-bottom: 21rem
+    margin-bottom: 21rem
+    @include respond(tab-land)
+        margin-bottom: 13rem
+    @include respond(tab-port)
+        margin-bottom: 40rem
+
     
 .section-adventure
-    padding: 21rem 0
+    padding: 21rem 2.4rem
     background: linear-gradient(90deg, rgba($color-brown-light, 0.70) 0.03%, rgba($color-black, 0.70) 99.94%), url(../img/section-adventure.jpg) center / cover no-repeat
     transform: skewY(7deg)
     & > * //Выбираем всех потомков
         transform: skewY(-7deg) //Поворот обратно потомков
+    @include respond(tab-land)
+        padding: 15rem 2.4rem
+    @include respond(tab-port)
+        padding: 8rem 2.4rem 2rem 2.4rem
 
 .section-tours
     padding-top: 21rem
     margin-bottom: 8rem
+    @include respond(tab-port)
+        padding-top: 14rem
+    
+        
 
 .section-feedback
     padding: 8rem 0
@@ -20,3 +35,5 @@
 .section-book
     padding: 10rem
     background: linear-gradient(90deg, $color-brown-light 3.65%, $color-brown-dark 100%)
+    @include respond(tab-port)
+        padding: 4rem

@@ -7,7 +7,21 @@
     transform: skewX(330deg)
     & > *
         transform: skewX(-330deg)
-    &__img
+    @include respond(tab-land)
+        transform: skewX(-20deg)
+        & > *
+            transform: skewX(20deg)
+    @include respond(tab-port)
+        width: 80%
+        &:nth-child(2)
+            margin-bottom: 2.4rem            
+        transform: skewX(-5deg)
+        & > *
+            transform: skewX(5deg)
+        text-align: center
+
+    //Контейнер фотки отзыва
+    &__img               
         width: 15rem
         height: 15rem
         //background: green был для настройки
@@ -22,6 +36,12 @@
             height: 100% //Чтоб влез в кружок
             transform: scale(1.2)
             transition: all .5s ease-out
+        @include respond(tab-port)
+            float: none
+            margin: 0 auto
+            margin-bottom: 4rem
+            
+            
     //Появление имени и фамилии на фотке
     &__name        
         text-align: center

@@ -1,14 +1,16 @@
+//Бургер и меню навигации
+
 .navigation
     &__toggle
         display: none // Чекбокс переключатель меню (true/false)
     &__toggle:checked ~ &__background //Выбираем соседа
-        transform: scale(100) //Показываем подложку меню
-    &__toggle:checked ~ &__nav
+        transform: scale(100) //Показываем подложку
+    &__toggle:checked ~ &__nav //Показываем меню
         height: 100%
         transform: scale(1)
         transform: translate(0, 0)
         opacity: 1
-    &__button
+    &__button //Кнопка
         width: 6rem
         height: 6rem
         border-radius: 50%
@@ -19,7 +21,8 @@
         z-index: 200
         text-align: center
         cursor: pointer
-    &__background
+        box-shadow: $box-shadow-light
+    &__background //Спрятанная подложка
         width: 4rem
         height: 4rem
         border-radius: 50%
@@ -29,7 +32,7 @@
         right: 10rem
         z-index: 100    
         transition: transform 1s cubic-bezier(0.68, -0.6, 0.32, 1.6)
-    &__nav
+    &__nav //Контейнер навигационного меню в разложенном состоянии и его анимация
         height: 100vh
         width: 100%
         position: fixed
@@ -37,29 +40,28 @@
         right: 0
         z-index: 150
         transition: all .7s cubic-bezier(.02,.52,1,.38)
-
         //Скрытое состояние
         opacity: 0 
         transform: translate(-100rem, -100rem)   
         transform: scale(0)
-    &__list
+    &__list //Список меню
         position: absolute
         top: 50%
         left: 50%
         transform: translate(-50%, -50%)
         list-style: none
-    &__item
+    &__item //Пункт меню
         text-align: center        
         &:not(:last-child)
             margin-bottom: 5rem
-    &__link
+    &__link //Пункты меню и их анимация
         &:link, &:visited                  
             font-size: 4rem
             letter-spacing: .5rem
             color: $color-white        
             text-decoration: none
             text-transform: uppercase
-            background: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%, $color-white 100%)
+            background: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%, $color-white 100%) //Резкий острый градиент
             padding: 1rem 2rem
             background-size: 220% //Увеличив увели вправо белую полосу
             transition: all .3s ease-out
@@ -68,32 +70,40 @@
             background-position: 100% //Вернули белую полосу, заполнив всё
             color: $color-brown-dark  //Перекрасили текст
             transform: translateX(1rem) 
+
+    //Иконка бургера и её анимация
     &__icon
         position: relative
-        margin-top: 29px         
-        &, 
-        &::before, 
-        &::after
-            width: 30px
-            height: 2px
+        margin-top: 2.9rem         
+        &, //Средняя палочка (т.е. сама __icon)
+        &::before, //Верхняя палочка
+        &::after //Нижняя палочка
+            width: 3rem
+            height: .2rem
             background: $color-black
             display: inline-block    
-            transition: all .3s        
+            transition: all .3s  
+        //Задем верх. и ниж. палочкам положение      
         &::before, 
         &::after
             content: ""
             position: absolute
             left: 0
         &::before
-            top: -8px
+            top: -.8rem
         &::after
-            top: 8px
+            top: .8rem
+
+    //Действия при наведении
     &__button:hover &__icon::before
-        top: -10px
+        top: -1rem
     &__button:hover &__icon::after
-        top: 10px
+        top: 1rem
+
+    //Действия при клике (выборе - это чекбокс)        
     &__toggle:checked + &__button &__icon
         background: transparent // Убираем среднюю палочку
+    //Поворачиваем верхнюю и инужнюю палочки
     &__toggle:checked + &__button &__icon::before
         top: 0
         transform: rotate(135deg)

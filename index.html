@@ -249,13 +249,14 @@
         <!-- Карточки -->
         <div class="row">
           <div class="feedback-card">
+            <!-- Теги <figure> и <figcaption> применятеся для размещения фотки и текста поверх -->
             <figure class="feedback-card__img">
               <img src="img/feedback_1.jpg" alt="Путешественник 1">
               <figcaption class="feedback-card__name">антон рябин</figcaption>
             </figure>
             <div class="feedback-card__box">
               <h3 class="title-third mb-10px">я получил массу впечатлений</h3>
-              <p class="paragraph">Задача организации, в&nbsp;особенности&nbsp;же дальнейшее развитие различных форм деятельности влечет за&nbsp;собой процесс внедрения и&nbsp;модернизации соответствующий условий активизации. Таким образом начало повседневной работы по&nbsp;формированию позиции влечет.</p>
+              <p class="paragraph">Задача организации, в&nbsp;особенности&nbsp;же дальнейшее развитие различных форм деятельности влечет за&nbsp;собой процесс внедрения и&nbsp;модернизации соответствующий условий активизации. Таким образом начало повседневной работы по&nbsp;формированию позиции</p>
             </div>            
           </div>
         </div>
@@ -267,7 +268,7 @@
             </figure>
             <div class="feedback-card__box">
               <h3 class="title-third mb-10px">это было великолепно и незабываемо!</h3>
-              <p class="paragraph">Задача организации, в&nbsp;особенности&nbsp;же дальнейшее развитие различных форм деятельности влечет за&nbsp;собой процесс внедрения и&nbsp;модернизации соответствующий условий активизации. Таким образом начало повседневной работы по&nbsp;формированию позиции влечет.</p>
+              <p class="paragraph">Задача организации, в&nbsp;особенности&nbsp;же дальнейшее развитие различных форм деятельности влечет за&nbsp;собой процесс внедрения и&nbsp;модернизации соответствующий условий активизации. Таким образом начало повседневной работы по&nbsp;формированию позиции</p>
             </div>            
           </div>
         </div>
@@ -283,23 +284,27 @@
           <div class="row">
             <div class="book">
               <div class="book__form">
+                <!-- Форма и заголовок-->
                 <form action="#" class="form">
                   <div class="align-left mb-50px">
                     <h2 class="title-secondary">
                       забронировать тур
                     </h2>
                   </div>
+                  <!-- Инпуты -->
                   <div class="form__group">
-                    <input type="text" class="form__input" placeholder="Имя Фамилия" id="name" required>
+                    <input type="text" class="form__input" placeholder="Имя Фамилия" id="name" required> <!-- id для <label> -->
                     <label for="name" class="form__label">Введите имя и фамилию латинскими буквами</label>
                   </div>
                   <div class="form__group">
                     <input type="email" class="form__input" placeholder="ivanov@mail.com" id="email" required>
                     <label for="email" class="form__label">Введите почтовый адрес в зоне .ru</label>
                   </div>
+
+                  <!-- Чекбоксы -->
                   <div class="form__group">
                     <div class="form__group-radio">
-                      <!-- Атрибут name="checked" у всех инпуов - выбор или/или -->
+                      <!-- Атрибут name="checked" у всех инпуов  выбор или/или -->
                       <input type="radio" class="form__input-radio" id="tour-1" name="checked" checked>                      
                       <label for="tour-1" class="form__label-radio">
                         <!-- span для стилизации кнопочки радио -->
@@ -319,6 +324,8 @@
           </div>
         </section>        
       </main>
+
+      <!-- Футер -->
       <footer class="footer">
         <div class="row align-center">
           <a href="#"><img class="footer__logo" src="icons/Icon-logo.svg" alt="Логотип воздушный шар"/></a>

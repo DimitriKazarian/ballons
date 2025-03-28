@@ -2,6 +2,8 @@
     position: relative
     &__photo        
         width: 55%
+        @include respond(tab-port)
+            width: 35%
         box-shadow: $box-shadow
         border-radius: .5rem
         position: absolute
@@ -11,12 +13,18 @@
         &_n1
             top: 0
             left: 0rem
+            @include respond(tab-port)
+                left: 20%
         &_n2
             top: 2rem
             right: 0
+            @include respond(tab-port)
+                right: 20%
         &_n3
             top: 13rem
             left: 10rem
+            @include respond(tab-port)
+                left: 30%
         &:hover
             outline: solid .5rem $color-brown-light
             transform: scale(1.2)
