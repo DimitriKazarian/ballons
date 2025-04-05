@@ -81,17 +81,31 @@
           </div>
 
           <div class="col-1-of-2">
-            <!-- Изображения -->
+            <!-- Изображения (src оставили для старых браузеров, srcset для указания коллекции разноширинных изображений, sizes для указания процента изображения от VW при заданном адаптиве) -->
              <div class="composition">
-                <img src="img/1.png" alt="Ballons_1" class="composition__photo composition__photo_n1">
-                <img src="img/2.png" alt="Ballons_2" class="composition__photo composition__photo_n2">
-                <img src="img/3.png" alt="Ballons_3" class="composition__photo composition__photo_n3">
+                <img src="img/1.png"
+                srcset="img/1.png 954w, img/1-small.png 318w"
+                sizes="(max-width: 1240px) 23vw, (max-width: 900px) 44vw, (max-width: 600px) 47vw, 300px"
+                alt="Ballons_1" 
+                class="composition__photo composition__photo_n1">
+
+                <img src="img/2.png" 
+                srcset="img/2.png 954w, img/2-small.png 318w"
+                sizes="(max-width: 1240px) 23vw, (max-width: 900px) 44vw, (max-width: 600px) 47vw, 300px"
+                alt="Ballons_2" 
+                class="composition__photo composition__photo_n2">
+
+                <img src="img/3.png"
+                srcset="img31.png 954w, img/3-small.png 318w"
+                sizes="(max-width: 1240px) 23vw, (max-width: 900px) 44vw, (max-width: 600px) 47vw, 300px" 
+                alt="Ballons_3" 
+                class="composition__photo composition__photo_n3">
               </div>
           </div>
         </div>
         </section>
 
-        <!-- Секция преимущества с иконками -->
+        <!-- Секция приключения с иконками -->
         <section class="section-adventure">
           <div class="row"> 
             <div class="col-1-of-4">
@@ -160,7 +174,7 @@
                 <div class="tour-card__backside-box">
                   <p class="tour-card__text tour-card__text_1">полная стоимость:</p>
                   <p class="tour-card__text tour-card__text_2">5990₽</p>
-                  <a href="#" class="btn btn_animated">забронировать</a>
+                  <a href="#" class="btn btn_animated">заказать</a>
                 </div>
               </div>
             </div>
@@ -189,7 +203,7 @@
                 <div class="tour-card__backside-box">
                   <p class="tour-card__text tour-card__text_1">полная стоимость:</p>
                   <p class="tour-card__text tour-card__text_2">12990₽</p>
-                  <a href="#" class="btn btn_animated">забронировать</a>
+                  <a href="#" class="btn btn_animated">заказать</a>
                 </div>
               </div>
             </div>
@@ -218,7 +232,7 @@
                 <div class="tour-card__backside-box">
                   <p class="tour-card__text tour-card__text_1">полная стоимость:</p>
                   <p class="tour-card__text tour-card__text_2">2590₽</p>
-                  <a href="#" class="btn btn_animated">забронировать</a>
+                  <a href="#" class="btn btn_animated">заказать</a>
                 </div>
               </div>
             </div>

@@ -5,6 +5,12 @@
     /* Последовательность: градиент сверху, потом картинка */ 
     background: linear-gradient(90deg, rgba($color-brown-light, 0.70) 0.03%, rgba($color-black, 0.70) 99.94%), url(../img/header-background.jpg) center / cover no-repeat
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%)
+
+    /* Выставляем медиа-правило дл изменения картинки фона
+        Если min-res больше в 2 раза, И min-width меньше 670px, ИЛИ больше 1340px, грузим большую */
+    @media (min-resolution: 192dpi) and (min-width: 670px), (min-width: 1340px)
+        background: linear-gradient(90deg, rgba($color-brown-light, 0.70) 0.03%, rgba($color-black, 0.70) 99.94%), url(../img/header-background-XL.jpg) center / cover no-repeat
+        
     &__logo
         position: absolute
         width: 5.6rem
